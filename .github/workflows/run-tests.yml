@@ -66,9 +66,7 @@ jobs:
 
       - name: Upgrade to Pest 4 for Laravel 13
         if: matrix.laravel == '^13.0'
-        run: |
-          composer require 'pestphp/pest:^4.0' 'pestphp/pest-plugin-laravel:^4.0' --dev --no-update
-          echo '<?xml version="1.0" encoding="UTF-8"?><phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd" backupGlobals="false" bootstrap="vendor/autoload.php" colors="true" processIsolation="false" stopOnFailure="false" executionOrder="random" failOnWarning="true" failOnRisky="true" failOnEmptyTestSuite="true" beStrictAboutOutputDuringTests="true"><testsuites><testsuite name="InnoGE Test Suite"><directory>tests</directory></testsuite></testsuites><source><include><directory suffix=".php">./src</directory></include></source></phpunit>' > phpunit.xml.dist
+        run: composer require 'pestphp/pest:^4.0' 'pestphp/pest-plugin-laravel:^4.0' --dev --no-update
 
       - name: Install dependencies
         run: |
