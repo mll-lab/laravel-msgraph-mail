@@ -36,6 +36,8 @@ jobs:
             php: 8.1
           - laravel: "^13.0"
             php: 8.2
+          - laravel: "^13.0"
+            stability: prefer-lowest
           - laravel: "^11.0"
             stability: prefer-lowest
           - laravel: "^10.0"
@@ -61,6 +63,10 @@ jobs:
 
       - name: Remove larastan from dev dependencies
         run: composer remove --dev larastan/larastan
+
+      - name: Remove pest-plugin-laravel for Laravel 13 (not yet supported)
+        if: matrix.laravel == '^13.0'
+        run: composer remove --dev pestphp/pest-plugin-laravel --no-update
 
       - name: Install dependencies
         run: |
